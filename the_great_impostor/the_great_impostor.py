@@ -1,31 +1,17 @@
 from util import generate_list, print_line, get_timestamp
-from time import sleep
 
 
-# actual sorting algorithm
 def sort(unsorted_list):
-    is_sorted = False
+    list_len = len(unsorted_list)
 
-    while not is_sorted:
-        changes_made = 0
+    sorted_list = list()
 
-        for i in range(len(unsorted_list) - 1):
+    for i in range(list_len):
+        sorted_list.append(i + 1)
 
-            if unsorted_list[i] > unsorted_list[i + 1]:
-                unsorted_list[i], unsorted_list[i + 1] = unsorted_list[i + 1], unsorted_list[i]
-                changes_made += 1
-
-        if changes_made == 0:
-            is_sorted = True
-
-        # print(f'changes made: {changes_made} {unsorted_list}')
-        # sleep(0.5)
-
-    sorted_list = unsorted_list
     return sorted_list
 
 
-# printing instructions and results etc.
 def main():
     # print instructions
     print_line(30)
