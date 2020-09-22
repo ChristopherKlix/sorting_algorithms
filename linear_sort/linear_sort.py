@@ -1,6 +1,5 @@
-from random import shuffle
 import re
-from datetime import datetime
+from util import generate_list, print_line, get_timestamp
 
 
 def sort(unsorted_list):
@@ -29,32 +28,24 @@ def main():
     print('# For easy overview, sorting works best with lists of 10-30 elements\n')
     print_line(30)
 
-    # initialize an empty list
-    unsorted_list = list()
-
     # get user input for list length
     list_len = int(input('Length of unsorted list: '))
 
-    # generate a sorted list of length list_len
-    for i in range(list_len):
-        unsorted_list.append(i + 1)
-
-    # shuffle list (make it unsorted)
-    shuffle(unsorted_list)
+    unsorted_list = generate_list(list_len, 'random')
 
     # print initial unsorted list
-    print_line(20)
-    print('Unsorted list:')
+    print_line(30)
+    print('\n------- Unsorted list: -------')
     print(unsorted_list)
 
     # wait for user to start sorting
-    print_line(20)
+    print_line(30)
     input('Press enter to start sorting ')
 
     # sort list
-    timestamp_start = datetime.now()
+    timestamp_start = get_timestamp()
     sorted_list = sort(unsorted_list)
-    timestamp_finish = datetime.now()
+    timestamp_finish = get_timestamp()
 
     duration = timestamp_finish - timestamp_start
 
@@ -64,10 +55,6 @@ def main():
     print_line(30)
     print(f'{duration.seconds}.{duration.microseconds}s')
     print_line(30)
-
-
-def print_line(n = 10):
-    print('-' * n)
 
 
 main()
