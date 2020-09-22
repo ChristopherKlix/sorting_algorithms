@@ -1,7 +1,7 @@
-import re
 from util import generate_list, print_line, get_timestamp
 
 
+# actual sorting algorithm
 def sort(unsorted_list):
     list_len = len(unsorted_list)
     smallest_int = 0
@@ -21,6 +21,7 @@ def sort(unsorted_list):
     return sorted_list
 
 
+# printing instructions and results etc.
 def main():
     # print instructions
     print_line(30)
