@@ -11,9 +11,9 @@ Feel free to use them in your own projects.
 
 ![Merge Sort](https://img.shields.io/badge/Merge%20Sort-works-success?style=for-the-badge)
 
-![Binary Sort](https://img.shields.io/badge/Binary%20Sort-in%20dev-inactive?style=for-the-badge)
+![The Great Impostor](https://img.shields.io/badge/The%20Great%20Impostor-works-success?style=for-the-badge)
 
-![Bubble Sort](https://img.shields.io/badge/Bubble%20Sort-in%20dev-yellow?style=for-the-badge)
+![Bubble Sort](https://img.shields.io/badge/Bubble%20Sort-works-success?style=for-the-badge)
 
 ## Linear Sort
 - [ ] Documentation
