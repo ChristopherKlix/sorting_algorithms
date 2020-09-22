@@ -23,3 +23,6 @@ Feel free to use them in your own projects.
 - [ ] Documentation for split()
 - [ ] Documentation for merge()
 - [ ] Documentation for timestamp
+
+## Bubble Sort
+- [ ] Documentation
