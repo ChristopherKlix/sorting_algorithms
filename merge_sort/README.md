@@ -146,4 +146,10 @@ where the entire process that we just went through is repeated again for the rig
 This will return `[2, 5, 6, 9]`, which then gets merged with `[1, 3, 4, 8]`.
 
 ### Done
-Now, we just have to merge both and we're done!
+Now, we just have to merge both, return the sorted list and we're done!
+
+## Split
+\# TODO
+
+## Merge
+\# TODO
