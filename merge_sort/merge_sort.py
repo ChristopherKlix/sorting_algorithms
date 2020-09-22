@@ -4,6 +4,63 @@ show_debug = False
 
 
 def sort(unsorted_list):
+
+    # if list is large than 1
+    if len(unsorted_list) > 1:
+
+        # split list in half
+        half = len(unsorted_list)//2
+        left_half = unsorted_list[:half]
+        right_half = unsorted_list[half:]
+
+        # sort left half
+        sorted_left_half = sort(left_half)
+
+        # sort right half
+        sorted_right_half = sort(right_half)
+    
+        # merge halves
+        sorted_list = []
+
+        for _ in range(len(unsorted_list)):
+
+            # if both lists have elements left
+            if len(sorted_left_half) > 0 and len(sorted_right_half) > 0:
+
+                # if right list has smallest number
+                if sorted_left_half[0] > sorted_right_half[0]:
+                    sorted_list.append(sorted_right_half[0])
+                    sorted_right_half.pop(0)
+
+                # if left list has smallest number
+                elif sorted_left_half[0] < sorted_right_half[0]:
+                    sorted_list.append(sorted_left_half[0])
+                    sorted_left_half.pop(0)
+
+                # if both lists have the same smallest number
+                # use left list
+                else:
+                    sorted_list.append(sorted_left_half[0])
+                    sorted_left_half.pop(0)
+
+            # else if only one list has element left
+            else:
+                if len(sorted_left_half) > 0:
+                    sorted_list.append(sorted_left_half[0])
+                    sorted_left_half.pop(0)
+                else:
+                    sorted_list.append(sorted_right_half[0])
+                    sorted_right_half.pop(0)
+        
+        # return sorted list
+        return sorted_list
+    
+    # if list is only one number
+    else:
+        return unsorted_list
+
+
+def debug_sort(unsorted_list):
     print(f'---------------- sort {unsorted_list} ----------------')
     if len(unsorted_list) > 1:
         # split list in half
@@ -84,7 +141,12 @@ def main():
 
     # sort list
     timestamp_start = get_timestamp()
-    sorted_list = sort(unsorted_list)
+
+    if show_debug:
+        sorted_list = debug_sort(unsorted_list)
+    else:
+        sorted_list = sort(unsorted_list)
+        
     timestamp_finish = get_timestamp()
 
     duration = timestamp_finish - timestamp_start
@@ -93,7 +155,7 @@ def main():
     print('\n-------- Sorted list: --------')
     print(sorted_list)
     print_line(30)
-    print(f'{duration.seconds}.{duration.microseconds}s')
+    print(f'Duration: {duration.seconds}.{duration.microseconds}s')
     print_line(30)
 
 
