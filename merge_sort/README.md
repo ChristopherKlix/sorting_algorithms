@@ -2,6 +2,8 @@
 Beautiful and the definition of confusing.
 Merge sorting allows for super fast sorting by calling itself (so-called **recursion**).
 
+![INCEPTION](https://img.shields.io/badge/Complexity-inception-success?style=for-the-badge)
+
 As it is quite difficult for beginners in CS to understand this algorithm,
 I created it manually in Python.
 
