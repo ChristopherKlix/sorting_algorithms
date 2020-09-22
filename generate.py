@@ -12,3 +12,8 @@ def generate(n):
     shuffle(unsorted_list)
 
     return unsorted_list
+
+
+n = int(input('Length: '))
+
+print(generate(n))
