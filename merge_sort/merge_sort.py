@@ -1,18 +1,17 @@
-from random import shuffle
-import re
+from util import generate_list, print_line, get_timestamp
 
 show_debug = False
 
 
-def sort(list):
-    print(f'---------------- sort {list} ----------------')
-    if len(list) > 1:
+def sort(unsorted_list):
+    print(f'---------------- sort {unsorted_list} ----------------')
+    if len(unsorted_list) > 1:
         # split list in half
         if show_debug:
             print('split')
-        half = len(list)//2
-        left_half = list[:half]
-        right_half = list[half:]
+        half = len(unsorted_list)//2
+        left_half = unsorted_list[:half]
+        right_half = unsorted_list[half:]
 
         # sort left half
         sorted_left_half = sort(left_half)
@@ -29,7 +28,7 @@ def sort(list):
             print(f'--- merge {sorted_left_half} and {sorted_right_half} ---')
         sorted_list = []
 
-        for i in range(len(list)):
+        for i in range(len(unsorted_list)):
             if len(sorted_left_half) > 0 and len(sorted_right_half) > 0:
                 if sorted_left_half[0] > sorted_right_half[0]:
                     sorted_list.append(sorted_right_half[0])
@@ -59,7 +58,7 @@ def sort(list):
         return sorted_list
     
     else:
-        return list
+        return unsorted_list
 
 
 def main():
@@ -69,39 +68,33 @@ def main():
     print('# For easy overview, sorting works best with lists of 10-30 elements\n')
     print_line(30)
 
-    # initialize an empty list
-    unsorted_list = list()
-
     # get user input for list length
     list_len = int(input('Length of unsorted list: '))
 
-    # generate a sorted list of length list_len
-    for i in range(list_len):
-        unsorted_list.append(i + 1)
-
-    # shuffle list (make it unsorted)
-    shuffle(unsorted_list)
+    unsorted_list = generate_list(list_len, 'random')
 
     # print initial unsorted list
-    print_line(20)
-    print('Unsorted list:')
+    print_line(30)
+    print('\n------- Unsorted list: -------')
     print(unsorted_list)
 
     # wait for user to start sorting
-    print_line(20)
+    print_line(30)
     input('Press enter to start sorting ')
 
     # sort list
+    timestamp_start = get_timestamp()
     sorted_list = sort(unsorted_list)
+    timestamp_finish = get_timestamp()
+
+    duration = timestamp_finish - timestamp_start
 
     # print sorted list
     print('\n-------- Sorted list: --------')
     print(sorted_list)
     print_line(30)
-
-
-def print_line(n = 10):
-    print('-' * n)
+    print(f'{duration.seconds}.{duration.microseconds}s')
+    print_line(30)
 
 
 main()
