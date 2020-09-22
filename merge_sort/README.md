@@ -86,9 +86,62 @@ left_half, right_half = split(unsorted_list)
 ```
 For now, we don't care how Python does that, but if you are curious, you can find a detailed explanation further down.
 
-We now have **two halves**. For example: [4, 8, 3, 1] and [5, 2, 9, 6]
+We now have **two halves**. For example: [8, 4, 3, 1] and [5, 2, 9, 6]
 
 After that, we start with sorting the left half.
 ```python
 sorted_left_half = sort(left_half)
 ```
+Yeah... seems weird, and it is, but in fact this is super powerful.
+Basically, what happens is the we now start the function again, but with a list of size 4, assuming we started with an initial list of size 8.
+And this first thing the function does, again, check if the list is greater than 1, which it is, split it into two halves ([8, 4] and [3 ,1])
+and sort the left half.
+This calls the function again, but this time with a list of size 2. Split into [8] and [4] and sort the left half.
+
+**Now the function gets called with a list of size 1**
+
+That means that the first if statement no longer is `True` and the function executes the **base case** and returns the list as it is.
+
+We can now store the result of `sort(left_half)` in `sorted_left_half = [8]` and proceed with the former function.
+The function next calls
+```python
+sorted_right_half = sort(right_half)
+```
+And again, this function call returns a list of size 1 `[4]`.
+
+That means that we can now proceed to step 4.
+
+### Merge
+Again, we don't really care how Python merges the two halves, but if you are curious, see further below for a detail explanation.
+
+Summarized, it step by step compares index 0 of both halves and append the smaller one to a new list.
+
+This repeats until all elements from both halves are appended to the new list and this list is then returned and stored in `sorted_list`.
+```python
+sorted_list = merge(sorted_left_half, sorted_right_half)
+```
+
+### Return
+Now that we have a sorted list of [4, 8], the function returns this `sorted_list` to its caller function.
+
+And if you remember, this call came from `sorted_left_half = sort(left_half)`, where left_half was [8, 4].
+Wich now was returned as [4, 8] and stored in `sorted_left_half`.
+
+The same process now continues to
+```python
+sorted_right_half = sort(right_half)
+```
+
+After that, both sorted halves `[4, 8]` and `[1, 3]` are merge to `[1, 3, 4, 8]` and returned to its caller function,
+which, again, was the previous `sorted_left_half = sort(left_half)`.
+
+This function then proceeds to
+```python
+sorted_right_half = sort(right_half)
+```
+where the entire process that we just went through is repeated again for the right half of the original list of size 8.
+
+This will return `[2, 5, 6, 9]`, which then gets merged with `[1, 3, 4, 8]`.
+
+### Done
+Now, we just have to merge both and we're done!
