@@ -13,7 +13,7 @@ Feel free to use them in your own projects.
 
 ![Binary Sort](https://img.shields.io/badge/Binary%20Sort-in%20dev-inactive?style=for-the-badge)
 
-![Bubble Sort](https://img.shields.io/badge/Bubble%20Sort-in%20dev-inactive?style=for-the-badge)
+![Bubble Sort](https://img.shields.io/badge/Bubble%20Sort-in%20dev-yellow?style=for-the-badge)
 
 ## Linear Sort
 Updates:
