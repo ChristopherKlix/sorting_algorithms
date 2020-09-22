@@ -16,7 +16,10 @@ Feel free to use them in your own projects.
 ![Bubble Sort](https://img.shields.io/badge/Bubble%20Sort-in%20dev-inactive?style=for-the-badge)
 
 ## Linear Sort
-Updates:
-* Added timer
+- [ ] Documentation
 
 ## Merge Sort
+- [x] Documentation for sort()
+- [ ] Documentation for split()
+- [ ] Documentation for merge()
+- [ ] Documentation for timestamp
