@@ -9,7 +9,7 @@ Feel free to use them in your own projects.
 
 ![Linear Sort](https://img.shields.io/badge/Linear%20Sort-works-success?style=for-the-badge)
 
-![Merge Sort](https://img.shields.io/badge/Merge%20Sort-in%20dev-yellow?style=for-the-badge)
+![Merge Sort](https://img.shields.io/badge/Merge%20Sort-works-success?style=for-the-badge)
 
 ![Binary Sort](https://img.shields.io/badge/Binary%20Sort-in%20dev-inactive?style=for-the-badge)
 
