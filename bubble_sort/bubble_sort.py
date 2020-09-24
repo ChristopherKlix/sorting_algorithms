@@ -5,6 +5,7 @@ from time import sleep
 # actual sorting algorithm
 def sort(unsorted_list):
     is_sorted = False
+    counter = 0
 
     while not is_sorted:
         changes_made = 0
@@ -20,7 +21,9 @@ def sort(unsorted_list):
 
         # print(f'changes made: {changes_made} {unsorted_list}')
         # sleep(0.5)
+        counter += 1
 
+    print(counter)
     sorted_list = unsorted_list
     return sorted_list
 

@@ -14,6 +14,11 @@ def generate(n):
     return unsorted_list
 
 
-n = int(input('Length: '))
+def main():
+    n = int(input('Length: '))
 
-print(generate(n))
+    print(generate(n))
+
+
+if __name__ == "__main__":
+    main()
