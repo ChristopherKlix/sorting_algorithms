@@ -1,23 +1,43 @@
 from util import generate_list, print_line, get_timestamp
 from time import sleep
 
+sleep_duration = 0
+
 
 # actual sorting algorithm
 def sort(unsorted_list):
     is_sorted = False
+    # debug
+    counter = 0
 
     while not is_sorted:
+        print(f'Run: {counter + 1}')
         changes_made = 0
 
         for i in range(len(unsorted_list) - 1):
 
             if unsorted_list[i] > unsorted_list[i + 1]:
+                # debug
+                a = unsorted_list[i]
+                b = unsorted_list[i + 1]
+
                 unsorted_list[i], unsorted_list[i + 1] = unsorted_list[i + 1], unsorted_list[i]
                 changes_made += 1
 
+                print(f'    swapped [{a}, {b}] -> [{b}, {a}]')
+                sleep(sleep_duration * 0.2)
+
         if changes_made == 0:
             is_sorted = True
+            print('Done')
+        else:
+            print(unsorted_list)
+            print('Not yet sorted', end='\n\n')
+            sleep(sleep_duration)
 
+        counter += 1
+
+    print(f'\nTotal runs: {counter}')
     sorted_list = unsorted_list
     return sorted_list
 
@@ -59,6 +79,11 @@ def main():
         print('|  $$$$$$/|  $$$$$$/')
         print(' \______/  \______/ ')
         return
+
+    # set sleep duration
+
+    global sleep_duration
+    sleep_duration = 1 if input('Slow down sorting? [y/n] ').lower() == 'y' else 0
 
     unsorted_list = generate_list(list_len, 'random')
 

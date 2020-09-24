@@ -1,24 +1,33 @@
 from util import generate_list, print_line, get_timestamp
 from time import sleep
 
+sleep_duration = 0
+
 
 # actual sorting algorithm
 def sort(unsorted_list):
-    is_sorted = False
+    list_len = len(unsorted_list)
+    smallest_int = 0
+    sorted_list = list()
 
-    while not is_sorted:
-        changes_made = 0
+    for index in range(list_len):
+        smallest_int = 1000000
 
-        for i in range(len(unsorted_list) - 1):
+        for element in unsorted_list:
+            if element < smallest_int:
+                smallest_int = element
+                print(f'Smallest found int: {smallest_int}')
+                sleep(sleep_duration * 0.2)
 
-            if unsorted_list[i] > unsorted_list[i + 1]:
-                unsorted_list[i], unsorted_list[i + 1] = unsorted_list[i + 1], unsorted_list[i]
-                changes_made += 1
+        unsorted_list.remove(smallest_int)
 
-        if changes_made == 0:
-            is_sorted = True
+        sorted_list.append(smallest_int)
 
-    sorted_list = unsorted_list
+        print(sorted_list, end='\n\n')
+        sleep(sleep_duration)
+
+    print('Done')
+
     return sorted_list
 
 
@@ -59,6 +68,11 @@ def main():
         print('|  $$$$$$/|  $$$$$$/')
         print(' \______/  \______/ ')
         return
+
+    # set sleep duration
+
+    global sleep_duration
+    sleep_duration = 1 if input('Slow down sorting? [y/n] ').lower() == 'y' else 0
 
     unsorted_list = generate_list(list_len, 'random')
 

@@ -1,4 +1,5 @@
 from util import generate_list, print_line, get_timestamp
+from time import sleep
 
 
 # actual sorting algorithm
@@ -32,6 +33,33 @@ def main():
     # get user input for list length
     list_len = int(input('Length of unsorted list: '))
 
+    # sgge retsae
+
+    if list_len == 1:
+        for i in range(5):  
+            print (' Loading' + '.' * i, end='\r')
+            sleep(1)
+        print('\n\n')
+        sleep(1)
+        print('Looks like linear sort fell asleep...', end='\n\n')
+        return
+
+    if list_len == 42:
+        while True:
+            print('hehe')
+            sleep(0.2)
+
+    if list_len == 69:
+        print('  /$$$$$$   /$$$$$$ ')
+        print(' /$$__  $$ /$$__  $$')
+        print('| $$  \__/| $$  \ $$')
+        print('| $$$$$$$ |  $$$$$$$')
+        print('| $$__  $$ \____  $$')
+        print('| $$  \ $$ /$$  \ $$')
+        print('|  $$$$$$/|  $$$$$$/')
+        print(' \______/  \______/ ')
+        return
+
     unsorted_list = generate_list(list_len, 'random')
 
     # print initial unsorted list
@@ -54,7 +82,7 @@ def main():
     print('\n-------- Sorted list: --------')
     print(sorted_list)
     print_line(30)
-    print(f'{duration.seconds}.{duration.microseconds}s')
+    print(f'Duration: {duration.seconds}.{duration.microseconds}s')
     print_line(30)
 
 
