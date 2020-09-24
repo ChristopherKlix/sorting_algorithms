@@ -7,6 +7,8 @@ Feel free to use them in your own projects.
 
 ## Algorithms
 
+**Sorting**
+
 ![Linear Sort](https://img.shields.io/badge/Linear%20Sort-works-success?style=for-the-badge)
 
 ![Bubble Sort](https://img.shields.io/badge/Bubble%20Sort-works-success?style=for-the-badge)
@@ -14,6 +16,10 @@ Feel free to use them in your own projects.
 ![Merge Sort](https://img.shields.io/badge/Merge%20Sort-works-success?style=for-the-badge)
 
 ![The Great Impostor](https://img.shields.io/badge/The%20Great%20Impostor-works-success?style=for-the-badge)
+
+**Let the algorithms compete against each other**
+
+![Compete](https://img.shields.io/badge/Compete-works-success?style=for-the-badge)
 
 Each algorithm has its own README.md inside the directory with a detailed explanation.
 
